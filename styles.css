@@ -84,6 +84,15 @@ main {
   height: 80%;
 }
 
+.normal-game-view {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  /* border-color: green;
+  border-style: dotted; */
+  height: 80%;
+}
+
 .easy-game, .hard-game {
   width: 50%;
   justify-content: center;
