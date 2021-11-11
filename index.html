@@ -10,14 +10,23 @@
 
 <body>
   <header>
-    <h1 class="header">Rock, Paper, Scissors</h1>
-    <h3 class="sub-header">Choose your Game!</h3>
+    <!-- <h1 class="header">Rock, Paper, Scissors</h1>
+    <h3 class="sub-header">Choose your Game!</h3> -->
   </header>
   <main>
+    <aside class="left-sidebar">
+      <p>LEFT</p>
+      <button class="change-game hidden">Change Game?</button>
+    </aside>
     <section class="home-view">
+      <h1 class="header">Rock, Paper, Scissors</h1>
+      <h3 class="sub-header">Choose your Game!</h3>
       <button class="easy-game">Classic Mode</button>
       <button class="hard-game">Hard Mode</button>
     </section>
+    <aside class="right-sidebar">
+      <p>RIGHT</p>
+    </aside>
     <section class="normal-game-view hidden">
       <input type="image" id="image" alt="Bulbasaur" src="assets/1.png">
       <input type="image" id="image" alt="Charmander" src="assets/4.png">
@@ -32,13 +41,8 @@
 
     </section>
   </main>
-  <div class="left-sidebar">
-    <p>LEFT</p>
-    <button class="change-game hidden">Change Game?</button>
-  </div>
-  <div class="right-sidebar">
-    <p>RIGHT</p>
-  </div>
+
+
   <script type="text/javascript" src="main.js"></script>
   <script src="player.js"></script>
   <script src="game.js"></script>
