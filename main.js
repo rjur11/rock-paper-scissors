@@ -1,6 +1,6 @@
 var homeView = document.querySelector(".home-view");
-var classicView = document.querySelector("classic-game-view");
-var hardView = document.querySelector("hard-game-view");
+var classicView = document.querySelector(".classic-game-view");
+var hardView = document.querySelector(".hard-game-view");
 var homeViewButtons = document.querySelector(".buttons");
 var classicButton = document.querySelector(".easy-game");
 var bulbaButton = document.querySelector(".bulba");
@@ -12,7 +12,6 @@ classicButton.addEventListener("click", classicMode);
 
 function classicMode() {
   addHidden(homeViewButtons);
-  removeHidden(classicView);
   removeHidden(normalPokesPage);
   console.log("clicked");
 }
