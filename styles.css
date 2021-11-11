@@ -84,6 +84,21 @@ main {
   height: 80%;
 }
 
+.bulba, .charm, .squirt, .pikachu, .sand {
+  height: 100px;
+  width: 100px;
+  cursor: url(https://cur.cursors-4u.net/games/gam-13/gam1282.cur), auto !important;
+}
+
+.normal-game-view, .hard-game-view {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  /* border-color: green;
+  border-style: dotted; */
+  height: 80%;
+}
+
 .easy-game, .hard-game {
   width: 50%;
   justify-content: center;
