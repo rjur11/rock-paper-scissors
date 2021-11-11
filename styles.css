@@ -10,42 +10,76 @@ body {
   background-color: cream;
   font-family: 'Pokemon Solid';
   font-style: normal;
-  font-weight: 300;
+  font-weight: 600;
   color: black;
+  height: 100%;
 }
 
 main {
   display: flex;
+  height: 100%;
 }
 
-.left-sidebar {
+.left-sidebar, .right-sidebar {
   display: flex;
-  order: 1;
   flex-grow: 1;
   flex-direction: column;
   align-content: flex-start;
+  align-items: center;
   justify-content: flex-start;
   border-color: green;
   border-style: dotted;
+  background-color: lightgray;
+}
+
+.playerImg {
+  margin: 20px;
 }
 
 .home-view {
   display: flex;
-  order: 2;
   flex-grow: 2;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   border-color: blue;
   border-style: dotted;
 }
 
-.right-sidebar {
+.title-text {
   display: flex;
-  order: 3;
-  flex-grow: 1;
   flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  border-color: blue;
+  border-style: dotted;
+}
+
+.header, .sub-header {
+  display: flex;
+}
+
+.header {
+  font-size: 45px;
+}
+
+.sub-header {
+  font-size: 25px;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
   border-color: green;
   border-style: dotted;
+  height: 80%;
+}
+
+.easy-game, .hard-game {
+  width: 50%;
+  justify-content: center;
+  margin-left: 25%;
+  border
 }
 
 .hidden {
