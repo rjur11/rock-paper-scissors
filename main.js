@@ -17,6 +17,13 @@ var computerPick = document.querySelector(".selected-img-2");
 var playerScore = document.querySelector(".player-score");
 var computerScore = document.querySelector(".computer-score");
 var changeGameButton = document.querySelector(".change-game");
+var battleSong = document.querySelector("audio");
+
+//Sound
+const audioContext = new AudioContext();
+const audioTrack = audioContext.createMediaElementSource(battleSong);
+audioTrack.connect(audioContext.destination);
+battleSong.loop = true;
 
 // Event Listeners
 classicButton.addEventListener("click", onClassicClick);
@@ -48,6 +55,8 @@ var hardModeArray = [
 function goHome() {
   game.mode = "home";
   game.gameType = "";
+  battleSong.pause();
+  battleSong.currentTime = 0;
   renderGame();
 }
 
@@ -95,6 +104,10 @@ function renderHome() {
 
 function renderSelection() {
   subHeader.innerText = "Choose your Pokemon!";
+  if (audioContext.state === "suspended") {
+    audioContext.resume();
+  }
+  battleSong.play();
   switch (game.gameType) {
     case "classic":
       classicMode();
