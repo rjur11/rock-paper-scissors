@@ -48,75 +48,7 @@ var gameMode = "home";
 var playerWins = 0;
 var computerWins = 0;
 
-function playGame(player, computer) {
-  switch (player) {
-    case "bulbasaur":
-      switch (computer) {
-        case "bulbasaur":
-          return "tie";
-        case "charmander":
-          return "computer";
-        case "squirtle":
-          return "player";
-        case "pikachu":
-          return "tie";
-        case "sandshrew":
-          return "player";
-      }
-    case "charmander":
-      switch (computer) {
-        case "bulbasaur":
-          return "player";
-        case "charmander":
-          return "tie";
-        case "squirtle":
-          return "computer";
-        case "pikachu":
-          return "tie";
-        case "sandshrew":
-          return "computer";
-      }
-    case "squirtle":
-      switch (computer) {
-        case "bulbasaur":
-          return "computer";
-        case "charmander":
-          return "player";
-        case "squirtle":
-          return "tie";
-        case "pikachu":
-          return "computer";
-        case "sandshrew":
-          return "player";
-      }
-    case "pikachu":
-      switch (computer) {
-        case "bulbasaur":
-          return "tie";
-        case "charmander":
-          return "tie";
-        case "squirtle":
-          return "player";
-        case "pikachu":
-          return "tie";
-        case "sandshrew":
-          return "computer";
-      }
-    case "sandshrew":
-      switch (computer) {
-        case "bulbasaur":
-          return "computer";
-        case "charmander":
-          return "player";
-        case "squirtle":
-          return "computer";
-        case "pikachu":
-          return "player";
-        case "sandshrew":
-          return "tie";
-      }
-  }
-}
+function playGame(player, computer) {}
 
 // Functions
 
