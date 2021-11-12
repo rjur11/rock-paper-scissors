@@ -6,11 +6,14 @@ class Player {
   }
 
   saveWinsToStorage() {
-    localStorage.setItem(this.name, `${this.wins}`);
+    window.localStorage.setItem(this.name, `${this.wins}`);
   }
 
   retrieveWinsFromStorage() {
-    this.wins = parseInt(localStorage.getItem(this.name));
+    var storageItem = window.localStorage.getItem(this.name);
+    if (storageItem) {
+      this.wins = parseInt(storageItem);
+    }
   }
 
   takeTurn() {

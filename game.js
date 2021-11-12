@@ -91,6 +91,22 @@ class Game {
         return "none";
     }
   }
+  playRound() {
+    this.playerSelection = this.player.takeTurn();
+    this.computerSelection = this.computer.takeTurn();
+    var winner = this.checkForWin();
+    switch (winner) {
+      case "player":
+        this.player.wins++;
+        this.player.saveWinsToStorage();
+        break;
+      case "computer":
+        this.computer.wins++;
+        this.computer.saveWinsToStorage();
+        break;
+    }
+    resetBoard();
+  }
 
   resetBoard() {
     this.gameType = "classic";
