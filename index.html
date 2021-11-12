@@ -13,7 +13,7 @@
     <aside class="left-sidebar">
       <img class="playerImg" src="assets/red1.png" alt="Pokemon Trainer">
       <p>Pokemon Trainer</p>
-      <p>Wins:0</p>
+      <p>Wins:<span class="player-score">0</span></p>
       <button class="change-game hidden">Change Game?</button>
     </aside>
     <section class="home-view">
@@ -50,21 +50,19 @@
         <input type="image" class="pikachu" id="image" alt="Pikachu" src="assets/25.png" data-pokemon="pikachu">
         <input type="image" class="sand" id="image" alt="Sandshrew" src="assets/27.png" data-pokemon="sandshrew">
       </section>
-      <section class="selection-view hidden">
-        <img src="assets/1.png" class="selectedImg1"><span><img src="assets/4.png" class="selectedImg2"></span>
+      <section class="comparison-view hidden">
+        <img src="assets/1.png" class="selected-img-1"><span><img src="assets/4.png" class="selected-img-2"></span>
       </section>
     </section>
     <aside class="right-sidebar">
       <img class="playerImg" src="assets/blue2.png" alt="Rival">
       <p>Rival</p>
-      <p>Wins:0</p>
+      <p>Wins:<span class="computer-score">0</span></p>
     </aside>
   </main>
-
-
-  <script type="text/javascript" src="main.js"></script>
   <script src="player.js"></script>
   <script src="game.js"></script>
+  <script type="text/javascript" src="main.js"></script>
 </body>
 
 </html>

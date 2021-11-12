@@ -2,9 +2,10 @@ class Game {
   constructor(player, computer) {
     this.player = player;
     this.computer = computer;
-    this.gameType = "main";
+    this.gameType = "";
     this.playerSelection = "";
     this.computerSelection = "";
+    this.mode = "home";
   }
 
   checkForWin() {
@@ -105,11 +106,11 @@ class Game {
         this.computer.saveWinsToStorage();
         break;
     }
-    resetBoard();
+    return winner;
   }
 
   resetBoard() {
-    this.gameType = "classic";
+    this.mode = "selection";
     this.playerSelection = "";
     this.computerSelection = "";
   }
