@@ -11,10 +11,12 @@ var pikaButton = document.querySelector(".pikachu");
 var sandButton = document.querySelector(".sand");
 var classicView = document.querySelector(".normal-game-view");
 var subHeader = document.querySelector(".sub-header");
-var selectionView = document.querySelector(".selection-view");
-var playerPick = document.querySelector(".selectedImg1");
+var comparisonView = document.querySelector(".comparison-view");
+var playerPick = document.querySelector(".selected-img-1");
+var computerPick = document.querySelector(".selected-img-2");
 var playerScore = document.querySelector(".player-score");
 var computerScore = document.querySelector(".computer-score");
+var changeGameButton = document.querySelector(".change-game");
 
 // Event Listeners
 classicButton.addEventListener("click", onClassicClick);
@@ -22,6 +24,7 @@ hardButton.addEventListener("click", onHardClick);
 bulbaButtons.forEach(listenForSelection);
 charmButtons.forEach(listenForSelection);
 squirtButtons.forEach(listenForSelection);
+changeGameButton.addEventListener("click", goHome);
 listenForSelection(pikaButton);
 listenForSelection(sandButton);
 window.addEventListener("load", windowLoad);
@@ -41,6 +44,13 @@ var hardModeArray = [
 ];
 
 // Functions
+
+function goHome() {
+  game.mode = "home";
+  game.gameType = "";
+  renderGame();
+}
+
 function windowLoad() {
   var player = new Player("Pokemon Trainer", "assets/red1.png");
   var computer = new Player("Rival", "assets/blue2.png");
@@ -62,6 +72,7 @@ function renderGame() {
       renderComparison();
       break;
   }
+  renderScores();
 }
 
 function onClassicClick() {
@@ -77,11 +88,12 @@ function onHardClick() {
 }
 
 function renderHome() {
-  removeHidden(homeView);
-  addHidden([classicView, hardView, selectionView]);
-  renderScores();
+  removeHidden(homeViewButtons);
+  addHidden([classicView, hardView, comparisonView, changeGameButton]);
 }
+
 function renderSelection() {
+  subHeader.innerText = "Choose your pokemon!";
   switch (game.gameType) {
     case "classic":
       classicMode();
@@ -91,46 +103,79 @@ function renderSelection() {
       break;
   }
 }
-function renderComparison() {}
+function renderComparison() {
+  removeHidden(comparisonView);
+  addHidden([classicView, hardView, homeViewButtons]);
+  playerPick.src = pokemonToImage(game.player.selection);
+  computerPick.src = pokemonToImage(game.computer.selection);
+  switch (game.playRound()) {
+    case "player":
+      subHeader.innerText = `${game.player.name} wins!`;
+      break;
+    case "computer":
+      subHeader.innerText = `${game.computer.name} wins!`;
+      break;
+    case "tie":
+      subHeader.innerText = "It's a tie!";
+      break;
+  }
+}
+
+function pokemonToImage(selection) {
+  switch (selection) {
+    case "bulbasaur":
+      return "assets/1.png";
+      break;
+    case "charmander":
+      return "assets/4.png";
+      break;
+    case "squirtle":
+      return "assets/7.png";
+      break;
+    case "pikachu":
+      return "assets/25.png";
+      break;
+    case "sandshrew":
+      return "assets/27.png";
+      break;
+  }
+}
 
 function renderScores() {
   playerScore.innerText = `${game.player.wins}`;
   computerScore.innerText = `${game.computer.wins}`;
 }
-function computerPick(array) {
+function randomSelect(array) {
   return array[Math.floor(Math.random() * array.length)];
 }
 
 function makeSelection(event) {
   game.player.setSelection(event.target.dataset.pokemon);
-  if (gameMode === "classic") {
-    var computerSelection = computerPick(easyModeArray);
+  if (game.gameType === "classic") {
+    var computerSelection = randomSelect(easyModeArray);
   } else {
-    var computerSelection = computerPick(hardModeArray);
+    var computerSelection = randomSelect(hardModeArray);
   }
   game.computer.setSelection(computerSelection);
   game.mode = "comparison";
   renderGame();
-  setTimeout(resetBoard(), 2000);
+  setTimeout(resetBoard, 2000);
 }
 
 function resetBoard() {
   game.resetBoard();
   renderGame();
+  removeHidden(changeGameButton);
 }
 
 function classicMode() {
-  addHidden(homeViewButtons);
+  addHidden([homeViewButtons, hardView, comparisonView]);
   removeHidden(classicView);
-  subHeader.innerText = "Choose your pokemon!";
-  renderScores();
 }
 
 function hardMode() {
-  addHidden(homeViewButtons);
+  addHidden([homeViewButtons, classicView, comparisonView]);
   removeHidden(hardView);
-  subHeader.innerText = "Choose your pokemon!";
-  renderScores();
 }
 
 function addHidden(element) {

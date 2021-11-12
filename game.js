@@ -106,7 +106,7 @@ class Game {
         this.computer.saveWinsToStorage();
         break;
     }
-    resetBoard();
+    return winner;
   }
 
   resetBoard() {

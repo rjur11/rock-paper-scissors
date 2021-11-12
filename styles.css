@@ -95,7 +95,7 @@ main {
   width: 100px;
 }
 
-.normal-game-view, .hard-game-view, .selection-view {
+.normal-game-view, .hard-game-view, .comparison-view {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
