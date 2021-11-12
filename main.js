@@ -90,10 +90,11 @@ function onHardClick() {
 function renderHome() {
   removeHidden(homeViewButtons);
   addHidden([classicView, hardView, comparisonView, changeGameButton]);
+  subHeader.innerText = "Choose your Game!";
 }
 
 function renderSelection() {
-  subHeader.innerText = "Choose your pokemon!";
+  subHeader.innerText = "Choose your Pokemon!";
   switch (game.gameType) {
     case "classic":
       classicMode();
