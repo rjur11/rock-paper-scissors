@@ -1,11 +1,23 @@
 class Player {
-  constructor(name, token, wins) {
-    this.name = "Pokemon Trainer";
-    this.token = "assets/red1.png";
+  constructor(name, token) {
+    this.name = name;
+    this.token = token;
     this.wins = 0;
   }
 
-  saveWinsToStorage() {}
-  retrieveWinsFromStorage() {}
-  takeTurn() {}
+  saveWinsToStorage() {
+    localStorage.setItem(this.name, `${this.wins}`);
+  }
+
+  retrieveWinsFromStorage() {
+    this.wins = parseInt(localStorage.getItem(this.name));
+  }
+
+  takeTurn() {
+    return this.selection;
+  }
+
+  setSelection(selection) {
+    this.selection = selection;
+  }
 }
