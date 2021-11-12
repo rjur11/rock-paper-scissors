@@ -1,6 +1,5 @@
 // Query Selectors
 var homeView = document.querySelector(".home-view");
-var classicView = document.querySelector(".classic-game-view");
 var hardView = document.querySelector(".hard-game-view");
 var homeViewButtons = document.querySelector(".buttons");
 var classicButton = document.querySelector(".easy-game");
@@ -10,31 +9,28 @@ var charmButtons = document.querySelectorAll(".charm");
 var squirtButtons = document.querySelectorAll(".squirt");
 var pikaButton = document.querySelector(".pikachu");
 var sandButton = document.querySelector(".sand");
-var normalPokesPage = document.querySelector(".normal-game-view");
+var classicView = document.querySelector(".normal-game-view");
 var subHeader = document.querySelector(".sub-header");
-var selectionPage = document.querySelector(".selection-view");
+var selectionView = document.querySelector(".selection-view");
 var playerPick = document.querySelector(".selectedImg1");
+var playerScore = document.querySelector(".player-score");
+var computerScore = document.querySelector(".computer-score");
 
 // Event Listeners
-classicButton.addEventListener("click", classicMode);
-hardButton.addEventListener("click", hardMode);
+classicButton.addEventListener("click", onClassicClick);
+hardButton.addEventListener("click", onHardClick);
 bulbaButtons.forEach(listenForSelection);
 charmButtons.forEach(listenForSelection);
 squirtButtons.forEach(listenForSelection);
 listenForSelection(pikaButton);
 listenForSelection(sandButton);
+window.addEventListener("load", windowLoad);
 
 function listenForSelection(element) {
   element.addEventListener("click", makeSelection);
 }
 // Global Variables
-// var pokemonOptions = {
-//   bulba: {button: bulbaButton, image: "assets/1.png"},
-//   charm: {button: charmButton, image: "assets/4.png"},
-//   squirt: {button: squirtButton, image: "assets/7.png"},
-//   pikachu: {button: pikaButton, image: "assets/25.png"},
-//   sand: {button: sandButton, image: "assets/27.png"}
-// };
+var game;
 var easyModeArray = ["bulbasaur", "charmander", "squirtle"];
 var hardModeArray = [
   "bulbasaur",
@@ -44,56 +40,109 @@ var hardModeArray = [
   "sandshrew"
 ];
 
-var gameMode = "home";
-var playerWins = 0;
-var computerWins = 0;
-
-function playGame(player, computer) {}
-
 // Functions
+function windowLoad() {
+  var player = new Player("Pokemon Trainer", "assets/red1.png");
+  var computer = new Player("Rival", "assets/blue2.png");
+  game = new Game(player, computer);
+  player.retrieveWinsFromStorage();
+  computer.retrieveWinsFromStorage();
+  renderGame();
+}
 
+function renderGame() {
+  switch (game.mode) {
+    case "home":
+      renderHome();
+      break;
+    case "selection":
+      renderSelection();
+      break;
+    case "comparison":
+      renderComparison();
+      break;
+  }
+}
+
+function onClassicClick() {
+  game.gameType = "classic";
+  game.mode = "selection";
+  renderGame();
+}
+
+function onHardClick() {
+  game.gameType = "hard";
+  game.mode = "selection";
+  renderGame();
+}
+
+function renderHome() {
+  removeHidden(homeView);
+  addHidden([classicView, hardView, selectionView]);
+  renderScores();
+}
+function renderSelection() {
+  switch (game.gameType) {
+    case "classic":
+      classicMode();
+      break;
+    case "hard":
+      hardMode();
+      break;
+  }
+}
+function renderComparison() {}
+
+function renderScores() {
+  playerScore.innerText = `${game.player.wins}`;
+  computerScore.innerText = `${game.computer.wins}`;
+}
 function computerPick(array) {
   return array[Math.floor(Math.random() * array.length)];
 }
 
 function makeSelection(event) {
-  // console.log(`You have selected ${element.target}`);
-  // addHidden(normalPokesPage);
-  // removeHidden(selectionPage);
-  // setSelections();
-  var playerSelection = event.target.dataset.pokemon;
+  game.player.setSelection(event.target.dataset.pokemon);
   if (gameMode === "classic") {
     var computerSelection = computerPick(easyModeArray);
   } else {
     var computerSelection = computerPick(hardModeArray);
   }
-  var winner = playGame(playerSelection, computerSelection);
-  console.log(playerSelection, computerSelection, winner);
+  game.computer.setSelection(computerSelection);
+  game.mode = "comparison";
+  renderGame();
+  setTimeout(resetBoard(), 2000);
 }
+
+function resetBoard() {
+  game.resetBoard();
+  renderGame();
+}
+
 function classicMode() {
   addHidden(homeViewButtons);
-  removeHidden(normalPokesPage);
+  removeHidden(classicView);
   subHeader.innerText = "Choose your pokemon!";
-  gameMode = "classic";
-  console.log("clicked");
+  renderScores();
 }
 
 function hardMode() {
   addHidden(homeViewButtons);
   removeHidden(hardView);
   subHeader.innerText = "Choose your pokemon!";
-  gameMode = "hard";
-  console.log("clicked");
+  renderScores();
 }
 
 function addHidden(element) {
-  element.classList.add("hidden");
+  if (Array.isArray(element)) {
+    for (var i = 0; i < element.length; i++) {
+      addHidden(element[i]);
+    }
+  } else {
+    element.classList.add("hidden");
+  }
 }
 
 function removeHidden(element) {
   element.classList.remove("hidden");
 }
-
-// setSelections(button) {
-//
-// }
