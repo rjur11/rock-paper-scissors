@@ -65,7 +65,7 @@ main {
   display: flex;
 }
 
-.pokeball {
+.pokeball, .token {
   height: 30px;
   width: 30px;
   padding: 10px;
@@ -101,11 +101,6 @@ main {
 .selected-img-1, .selected-img-2 {
   height: 100px;
   width: 100px;
-}
-
-.token-select {
-  height: 10px;
-  width: 10px;
 }
 
 .normal-game-view, .hard-game-view, .comparison-view {

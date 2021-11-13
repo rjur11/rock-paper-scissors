@@ -14,7 +14,6 @@ var subHeader = document.querySelector(".sub-header");
 var comparisonView = document.querySelector(".comparison-view");
 var playerPick = document.querySelector(".selected-img-1");
 var computerPick = document.querySelector(".selected-img-2");
-var tokenImg = document.querySelectorAll(".token-select");
 var playerScore = document.querySelector(".player-score");
 var computerScore = document.querySelector(".computer-score");
 var changeGameButton = document.querySelector(".change-game");
@@ -125,10 +124,10 @@ function renderComparison() {
   computerPick.src = pokemonToImage(game.computer.selection);
   switch (game.playRound()) {
     case "player":
-      subHeader.innerText = `${game.player.name} wins!`;
+      subHeader.innerHTML = `<img class="token" src="${game.player.token}">${game.player.name} wins!<img class="token" src="${game.player.token}">`;
       break;
     case "computer":
-      subHeader.innerText = `${game.computer.name} wins!`;
+      subHeader.innerHTML = `<img class="token" src="${game.computer.token}">${game.computer.name} wins!<img class="token" src="${game.computer.token}">`;
       break;
     case "tie":
       subHeader.innerText = "It's a tie!";
@@ -171,16 +170,12 @@ function makeSelection(event) {
   } else {
     var computerSelection = randomSelect(hardModeArray);
   }
-  setTimeout(showToken, 1000);
   game.computer.setSelection(computerSelection);
   game.mode = "comparison";
   renderGame();
   setTimeout(resetBoard, 2000);
 }
 
-function showToken() {
-  removeHidden(tokenImg);
-}
 function resetBoard() {
   game.resetBoard();
   renderGame();
