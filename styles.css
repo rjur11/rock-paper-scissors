@@ -25,13 +25,23 @@ main {
   display: flex;
   flex-grow: 1;
   flex-direction: column;
-  align-content: flex-start;
+  align-content: space-between;
   align-items: center;
   justify-content: flex-start;
   background-color: lightgray;
 }
 
 .change-game {
+  margin: 20px;
+  padding: 5px;
+  justify-content: center;
+  border: .5px solid red;
+  font-family: 'Pokemon Solid';
+  font-style: normal;
+  font-weight: 300;
+}
+
+.reset-wins {
   margin: 20px;
   padding: 5px;
   justify-content: center;
