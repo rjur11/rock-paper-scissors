@@ -176,15 +176,28 @@ function makeSelection(event) {
 }
 
 function showSelectionToken() {
-  var selection = document.querySelector(`.${game.player.selection}-selection`);
-  selection.innerHTML = `<img class="token" src=${game.player.token}>`;
+  var selections = document.querySelectorAll(
+    `.${game.player.selection}-selection`
+  );
+  selections.forEach(function(selection) {
+    selection.innerHTML = `<img class="token" src=${game.player.token}>`;
+  });
 }
+
+function removeSelectionToken() {
+  var selections = document.querySelectorAll(
+    `.${game.player.selection}-selection`
+  );
+  selections.forEach(function(selection) {
+    selection.innerHTML = "";
+  });
+}
+
 function makeComparison() {
   game.mode = "comparison";
   renderGame();
   setTimeout(resetBoard, 2000);
-  var selection = document.querySelector(`.${game.player.selection}-selection`);
-  selection.innerHTML = "";
+  removeSelectionToken();
 }
 
 function resetBoard() {
