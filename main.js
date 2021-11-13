@@ -17,6 +17,7 @@ var computerPick = document.querySelector(".selected-img-2");
 var playerScore = document.querySelector(".player-score");
 var computerScore = document.querySelector(".computer-score");
 var changeGameButton = document.querySelector(".change-game");
+var resetWinsButton = document.querySelector(".reset-wins");
 var battleSong = document.querySelector("audio");
 
 //Sound
@@ -32,6 +33,7 @@ bulbaButtons.forEach(listenForSelection);
 charmButtons.forEach(listenForSelection);
 squirtButtons.forEach(listenForSelection);
 changeGameButton.addEventListener("click", goHome);
+resetWinsButton.addEventListener("click", resetWins);
 listenForSelection(pikaButton);
 listenForSelection(sandButton);
 window.addEventListener("load", windowLoad);
@@ -51,6 +53,13 @@ var hardModeArray = [
 ];
 
 // Functions
+function resetWins() {
+  game.player.wins = 0;
+  game.computer.wins = 0;
+  game.player.saveWinsToStorage();
+  game.computer.saveWinsToStorage();
+  renderGame();
+}
 
 function goHome() {
   game.mode = "home";
