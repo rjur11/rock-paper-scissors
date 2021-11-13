@@ -28,9 +28,17 @@ main {
   align-content: flex-start;
   align-items: center;
   justify-content: flex-start;
-  /* border-color: green;
-  border-style: dotted; */
   background-color: lightgray;
+}
+
+.change-game {
+  margin: 20px;
+  padding: 5px;
+  justify-content: center;
+  border: .5px solid red;
+  font-family: 'Pokemon Solid';
+  font-style: normal;
+  font-weight: 300;
 }
 
 .playerImg {
@@ -44,8 +52,6 @@ main {
   flex-grow: 2;
   flex-direction: column;
   justify-content: flex-start;
-  /* border-color: blue;
-  border-style: dotted; */
 }
 
 .title-text {
@@ -53,8 +59,6 @@ main {
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
-  /* border-color: blue;
-  border-style: dotted; */
 }
 
 .header, .sub-header {
@@ -79,8 +83,6 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  /* border-color: green;
-  border-style: dotted; */
   height: 80%;
 }
 
@@ -90,17 +92,26 @@ main {
   cursor: url(https://cur.cursors-4u.net/games/gam-13/gam1282.cur), auto !important;
 }
 
-.selectedImg1, .selectedImg2 {
+.chibi {
+  height: 15px;
+  width: 15px;
+  padding: 2px;
+}
+
+.selected-img-1, .selected-img-2 {
   height: 100px;
   width: 100px;
+}
+
+.token-select {
+  height: 10px;
+  width: 10px;
 }
 
 .normal-game-view, .hard-game-view, .comparison-view {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  /* border-color: green;
-  border-style: dotted; */
   height: 80%;
 }
 
@@ -110,6 +121,9 @@ main {
   margin-left: 25%;
   border-radius: 12px;
   border: 2px solid red;
+  font-family: 'Pokemon Solid';
+  font-style: normal;
+  font-weight: 400;
 }
 
 .hidden {
