@@ -14,7 +14,9 @@
     <aside class="left-sidebar">
       <img class="playerImg" src="assets/red1.png" alt="Pokemon Trainer">
       <p>Pokemon Trainer</p>
-      <p>Wins:<span class="player-score">0</span></p>
+      <p>Wins:
+      <div class="player-score">0</div>
+      </p>
       <button class="change-game hidden">Change Game?</button>
     </aside>
     <section class="home-view">
@@ -39,16 +41,40 @@
         </button>
       </div>
       <section class="normal-game-view hidden">
-        <input type="image" class="bulba" id="image" alt="Bulbasaur" src="assets/1.png" data-pokemon="bulbasaur">
-        <input type="image" class="charm" id="image" alt="Charmander" src="assets/4.png" data-pokemon="charmander">
-        <input type="image" class="squirt" id="image" alt="Squirtle" src="assets/7.png" data-pokemon="squirtle">
+        <div><input type="image" class="bulba" id="image" alt="Bulbasaur" src="assets/1.png" data-pokemon="bulbasaur">
+          <br>
+          <div class="bulbasaur-selection token-size"></div>
+        </div>
+        <div><input type="image" class="charm" id="image" alt="Charmander" src="assets/4.png" data-pokemon="charmander">
+          <br>
+          <div class="charmander-selection token-size"></div>
+        </div>
+        <div><input type="image" class="squirt" id="image" alt="Squirtle" src="assets/7.png" data-pokemon="squirtle">
+          <br>
+          <div class="squirtle-selection token-size"></div>
+        </div>
       </section>
       <section class="hard-game-view hidden">
-        <input type="image" class="bulba" id="image" alt="Bulbasaur" src="assets/1.png" data-pokemon="bulbasaur">
-        <input type="image" class="charm" id="image" alt="Charmander" src="assets/4.png" data-pokemon="charmander">
-        <input type="image" class="squirt" id="image" alt="Squirtle" src="assets/7.png" data-pokemon="squirtle">
-        <input type="image" class="pikachu" id="image" alt="Pikachu" src="assets/25.png" data-pokemon="pikachu">
-        <input type="image" class="sand" id="image" alt="Sandshrew" src="assets/27.png" data-pokemon="sandshrew">
+        <div><input type="image" class="bulba" id="image" alt="Bulbasaur" src="assets/1.png" data-pokemon="bulbasaur">
+          <br>
+          <div class="bulbasaur-selection token-size"></div>
+        </div>
+        <div><input type="image" class="charm" id="image" alt="Charmander" src="assets/4.png" data-pokemon="charmander">
+          <br>
+          <div class="charmander-selection token-size"></div>
+        </div>
+        <div><input type="image" class="squirt" id="image" alt="Squirtle" src="assets/7.png" data-pokemon="squirtle">
+          <br>
+          <div class="squirtle-selection token-size"></div>
+        </div>
+        <div><input type="image" class="pikachu" id="image" alt="Pikachu" src="assets/25.png" data-pokemon="pikachu">
+          <br>
+          <div class="pikachu-selection token-size"></div>
+        </div>
+        <div><input type="image" class="sand" id="image" alt="Sandshrew" src="assets/27.png" data-pokemon="sandshrew">
+          <br>
+          <div class="sandshrew-selection token-size"></div>
+        </div>
       </section>
       <section class="comparison-view hidden">
         <img src="assets/1.png" class="selected-img-1"><img src="assets/4.png" class="selected-img-2">
@@ -57,7 +83,9 @@
     <aside class="right-sidebar">
       <img class="playerImg" src="assets/blue2.png" alt="Rival">
       <p>Rival</p>
-      <p>Wins:<span class="computer-score">0</span></p>
+      <p>Wins:
+      <div class="computer-score">0</div>
+      </p>
     </aside>
   </main>
   <script src="player.js"></script>

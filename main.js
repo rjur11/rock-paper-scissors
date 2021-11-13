@@ -165,15 +165,26 @@ function randomSelect(array) {
 
 function makeSelection(event) {
   game.player.setSelection(event.target.dataset.pokemon);
+  showSelectionToken();
   if (game.gameType === "classic") {
     var computerSelection = randomSelect(easyModeArray);
   } else {
     var computerSelection = randomSelect(hardModeArray);
   }
   game.computer.setSelection(computerSelection);
+  setTimeout(makeComparison, 1000);
+}
+
+function showSelectionToken() {
+  var selection = document.querySelector(`.${game.player.selection}-selection`);
+  selection.innerHTML = `<img class="token" src=${game.player.token}>`;
+}
+function makeComparison() {
   game.mode = "comparison";
   renderGame();
   setTimeout(resetBoard, 2000);
+  var selection = document.querySelector(`.${game.player.selection}-selection`);
+  selection.innerHTML = "";
 }
 
 function resetBoard() {
