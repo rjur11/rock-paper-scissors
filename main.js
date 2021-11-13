@@ -14,6 +14,7 @@ var subHeader = document.querySelector(".sub-header");
 var comparisonView = document.querySelector(".comparison-view");
 var playerPick = document.querySelector(".selected-img-1");
 var computerPick = document.querySelector(".selected-img-2");
+var tokenImg = document.querySelectorAll(".token-select");
 var playerScore = document.querySelector(".player-score");
 var computerScore = document.querySelector(".computer-score");
 var changeGameButton = document.querySelector(".change-game");
@@ -170,12 +171,16 @@ function makeSelection(event) {
   } else {
     var computerSelection = randomSelect(hardModeArray);
   }
+  setTimeout(showToken, 1000);
   game.computer.setSelection(computerSelection);
   game.mode = "comparison";
   renderGame();
   setTimeout(resetBoard, 2000);
 }
 
+function showToken() {
+  removeHidden(tokenImg);
+}
 function resetBoard() {
   game.resetBoard();
   renderGame();
