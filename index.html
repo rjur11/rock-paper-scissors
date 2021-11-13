@@ -14,62 +14,78 @@
     <aside class="left-sidebar">
       <img class="playerImg" src="assets/red1.png" alt="Pokemon Trainer">
       <p>Pokemon Trainer</p>
-      <p>Wins:<span class="player-score">0</span></p>
+      <p>Wins:
+      <div class="player-score">0</div>
+      </p>
       <button class="change-game hidden">Change Game?</button>
     </aside>
     <section class="home-view">
       <div class="title-text">
-        <h1 class="header"><span><img class="pokeball" src="assets/pokeball.png"></span>Rock, Paper, Scissors<span><img class="pokeball" src="assets/pokeball.png"></span></h1>
-        <h3 class="sub-header">Choose your Game!</h3>
+        <h1 class="header"><img class="pokeball" src="assets/pokeball.png">Rock, Paper, Scissors<img class="pokeball" src="assets/pokeball.png"></h1>
+        <h3 class="sub-header"><img class="token" src="assets/red1.png">Choose your Game!<img class="token" src="assets/red1.png"></h3>
       </div>
       <div class="buttons">
         <button class="easy-game">
-          <p class="classic-text">Classic Mode
-          <p>
-          <p class="easy"><span><img class="chibi" src="assets/bulbasaur-sprite.png"></span>Bulbasaur beats Squirtle<span><img class="chibi" src="assets/squirtle-sprite.png"></span></p>
-          <p class="easy"><span><img class="chibi" src="assets/squirtle-sprite.png"></span>Squirtle beats Charmander<span><img class="chibi" src="assets/charmander-sprite.png"></span></p>
-          <p class="easy"><span><img class="chibi" src="assets/charmander-sprite.png"></span>Charmander beats Bulbasaur<span><img class="chibi" src="assets/bulbasaur-sprite.png"></span></p>
+          <p class="classic-text">Classic Mode</p>
+          <p class="easy"><img class="chibi" src="assets/bulbasaur-sprite.png">Bulbasaur beats Squirtle<img class="chibi" src="assets/squirtle-sprite.png"></p>
+          <p class="easy"><img class="chibi" src="assets/squirtle-sprite.png">Squirtle beats Charmander<img class="chibi" src="assets/charmander-sprite.png"></p>
+          <p class="easy"><img class="chibi" src="assets/charmander-sprite.png">Charmander beats Bulbasaur<img class="chibi" src="assets/bulbasaur-sprite.png"></p>
         </button>
         <button class="hard-game">
           <p class="hard-text">Hard Mode</p>
-          <p class="hard"><span><img class="chibi" src="assets/bulbasaur-sprite.png"></span>Bulbasaur beats Squirtle and Sandshrew<span><img class="chibi" src="assets/squirtle-sprite.png"></span><span><img class="chibi"
-                src="assets/sandshrew-sprite.png"></span></p>
-          <p class="hard"><span><img class="chibi" src="assets/squirtle-sprite.png"></span>Squirtle beats Charmander and Sandshrew<span><img class="chibi" src="assets/charmander-sprite.png"></span><span><img class="chibi"
-                src="assets/sandshrew-sprite.png"></span></p>
-          <p class="hard"><span><img class="chibi" src="assets/charmander-sprite.png"></span>Charmander beats Bulbasaur<span><img class="chibi" src="assets/bulbasaur-sprite.png"></span></p>
-          <p class="hard"><span><img class="chibi" src="assets/pikachu-sprite.png"></span>Pikachu beats Squirtle<span><img class="chibi" src="assets/squirtle-sprite.png"></span>
-          <p class="hard"><span><img class="chibi" src="assets/sandshrew-sprite.png"></span>Sandshrew beats Pikachu and Charmander<span><img class="chibi" src="assets/pikachu-sprite.png"></span><span><img class="chibi"
-                src="assets/charmander-sprite.png"></span>
+          <p class="hard"><img class="chibi" src="assets/bulbasaur-sprite.png">Bulbasaur beats Squirtle and Sandshrew<img class="chibi" src="assets/squirtle-sprite.png"><img class="chibi" src="assets/sandshrew-sprite.png"></p>
+          <p class="hard"><img class="chibi" src="assets/squirtle-sprite.png">Squirtle beats Charmander and Sandshrew<img class="chibi" src="assets/charmander-sprite.png"><img class="chibi" src="assets/sandshrew-sprite.png"></p>
+          <p class="hard"><img class="chibi" src="assets/charmander-sprite.png">Charmander beats Bulbasaur<img class="chibi" src="assets/bulbasaur-sprite.png"></p>
+          <p class="hard"><img class="chibi" src="assets/pikachu-sprite.png">Pikachu beats Squirtle<img class="chibi" src="assets/squirtle-sprite.png">
+          <p class="hard"><img class="chibi" src="assets/sandshrew-sprite.png">Sandshrew beats Pikachu and Charmander<img class="chibi" src="assets/pikachu-sprite.png"><img class="chibi" src="assets/charmander-sprite.png">
         </button>
       </div>
       <section class="normal-game-view hidden">
-        <input type="image" class="bulba" id="image" alt="Bulbasaur" src="assets/1.png" data-pokemon="bulbasaur">
-        <img class="token-select hidden" src="">
-        <input type="image" class="charm" id="image" alt="Charmander" src="assets/4.png" data-pokemon="charmander">
-        <img class="token-select hidden" src="">
-        <input type="image" class="squirt" id="image" alt="Squirtle" src="assets/7.png" data-pokemon="squirtle">
-        <img class="token-select hidden" src="">
+        <div><input type="image" class="bulba" id="image" alt="Bulbasaur" src="assets/1.png" data-pokemon="bulbasaur">
+          <br>
+          <div class="bulbasaur-selection token-size"></div>
+        </div>
+        <div><input type="image" class="charm" id="image" alt="Charmander" src="assets/4.png" data-pokemon="charmander">
+          <br>
+          <div class="charmander-selection token-size"></div>
+        </div>
+        <div><input type="image" class="squirt" id="image" alt="Squirtle" src="assets/7.png" data-pokemon="squirtle">
+          <br>
+          <div class="squirtle-selection token-size"></div>
+        </div>
       </section>
       <section class="hard-game-view hidden">
-        <input type="image" class="bulba" id="image" alt="Bulbasaur" src="assets/1.png" data-pokemon="bulbasaur">
-        <img class="token-select hidden" src="">
-        <input type="image" class="charm" id="image" alt="Charmander" src="assets/4.png" data-pokemon="charmander">
-        <img class="token-select hidden" src="">
-        <input type="image" class="squirt" id="image" alt="Squirtle" src="assets/7.png" data-pokemon="squirtle">
-        <img class="token-select hidden" src="">
-        <input type="image" class="pikachu" id="image" alt="Pikachu" src="assets/25.png" data-pokemon="pikachu">
-        <img class="token-select hidden" src="">
-        <input type="image" class="sand" id="image" alt="Sandshrew" src="assets/27.png" data-pokemon="sandshrew">
-        <img class="token-select hidden" src="">
+        <div><input type="image" class="bulba" id="image" alt="Bulbasaur" src="assets/1.png" data-pokemon="bulbasaur">
+          <br>
+          <div class="bulbasaur-selection token-size"></div>
+        </div>
+        <div><input type="image" class="charm" id="image" alt="Charmander" src="assets/4.png" data-pokemon="charmander">
+          <br>
+          <div class="charmander-selection token-size"></div>
+        </div>
+        <div><input type="image" class="squirt" id="image" alt="Squirtle" src="assets/7.png" data-pokemon="squirtle">
+          <br>
+          <div class="squirtle-selection token-size"></div>
+        </div>
+        <div><input type="image" class="pikachu" id="image" alt="Pikachu" src="assets/25.png" data-pokemon="pikachu">
+          <br>
+          <div class="pikachu-selection token-size"></div>
+        </div>
+        <div><input type="image" class="sand" id="image" alt="Sandshrew" src="assets/27.png" data-pokemon="sandshrew">
+          <br>
+          <div class="sandshrew-selection token-size"></div>
+        </div>
       </section>
       <section class="comparison-view hidden">
-        <img src="assets/1.png" class="selected-img-1"><span><img src="assets/4.png" class="selected-img-2"></span>
+        <img src="assets/1.png" class="selected-img-1"><img src="assets/4.png" class="selected-img-2">
       </section>
     </section>
     <aside class="right-sidebar">
       <img class="playerImg" src="assets/blue2.png" alt="Rival">
       <p>Rival</p>
-      <p>Wins:<span class="computer-score">0</span></p>
+      <p>Wins:
+      <div class="computer-score">0</div>
+      </p>
     </aside>
   </main>
   <script src="player.js"></script>
