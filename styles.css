@@ -1,7 +1,5 @@
 html {
   height: 100%;
-  /* width: 100%;
-  margin: 0; */
 }
 
 body {
@@ -25,16 +23,13 @@ main {
   display: flex;
   flex-grow: 1;
   flex-direction: column;
-  /* align-content: space-between; */
   align-items: center;
-  /* justify-content: flex-start; */
   background-color: lightgray;
 }
 
 .change-game, .reset-wins {
   margin: 20px;
   padding: 5px;
-  /* justify-content: center; */
   border: .5px solid red;
   font-family: 'Pokemon Solid';
   font-style: normal;
@@ -51,13 +46,11 @@ main {
   display: flex;
   flex-grow: 2;
   flex-direction: column;
-  /* justify-content: flex-start; */
 }
 
 .title-text {
   display: flex;
   flex-direction: column;
-  /* justify-content: flex-end; */
   align-items: center;
 }
 
@@ -89,6 +82,10 @@ main {
   flex-direction: column;
   justify-content: space-around;
   height: 80%;
+}
+
+.easy-game:hover, .hard-game:hover, .reset-wins:hover, .change-game:hover {
+  background-color: darkgray;
 }
 
 .bulba, .charm, .squirt, .pikachu, .sand {
