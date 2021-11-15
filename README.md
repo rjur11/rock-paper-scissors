@@ -26,13 +26,13 @@ Rana Jurjus [GitHub](https://github.com/rjur11)
 
 ## Application in Action!
 
-Home Page and Classic Mode:
+Home Page and Classic Mode:\
 ![Home Page and Classic Mode](https://media.giphy.com/media/LqYW8cRZfeOAOhdAnu/giphy.gif)
 
-Change Game and Hard Mode:
+Change Game and Hard Mode:\
 ![Change Game and Hard Mode](https://media.giphy.com/media/kYq58zv1Erfc99IlLw/giphy.gif)
 
-Reset Wins Functionality:
+Reset Wins Functionality:\
 ![Reset Wins Functionality](https://media.giphy.com/media/SfY4LA3tjF4IpIEhdL/giphy.gif)
 
 
