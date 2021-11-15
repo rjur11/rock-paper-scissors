@@ -26,7 +26,7 @@ const audioTrack = audioContext.createMediaElementSource(battleSong);
 audioTrack.connect(audioContext.destination);
 battleSong.loop = true;
 
-// Event Listeners
+// Event Listeners and associated functions
 classicButton.addEventListener("click", onClassicClick);
 hardButton.addEventListener("click", onHardClick);
 bulbaButtons.forEach(listenForSelection);
@@ -41,6 +41,7 @@ window.addEventListener("load", windowLoad);
 function listenForSelection(element) {
   element.addEventListener("click", makeSelection);
 }
+
 // Global Variables
 var game;
 var easyModeArray = ["bulbasaur", "charmander", "squirtle"];
@@ -126,6 +127,7 @@ function renderSelection() {
       break;
   }
 }
+
 function renderComparison() {
   removeHidden(comparisonView);
   addHidden([classicView, hardView, homeViewButtons]);
@@ -168,6 +170,7 @@ function renderScores() {
   playerScore.innerText = `${game.player.wins}`;
   computerScore.innerText = `${game.computer.wins}`;
 }
+
 function randomSelect(array) {
   return array[Math.floor(Math.random() * array.length)];
 }
