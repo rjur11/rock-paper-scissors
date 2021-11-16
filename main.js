@@ -128,6 +128,10 @@ function renderSelection() {
   }
 }
 
+function playerSubHeader(player) {
+  return `<img class="token" src="${player.token}">${player.name} wins!<img class="token" src="${player.token}">`;
+}
+
 function renderComparison() {
   removeHidden(comparisonView);
   addHidden([classicView, hardView, homeViewButtons]);
@@ -135,10 +139,10 @@ function renderComparison() {
   computerPick.src = pokemonToImage(game.computer.selection);
   switch (game.playRound()) {
     case "player":
-      subHeader.innerHTML = `<img class="token" src="${game.player.token}">${game.player.name} wins!<img class="token" src="${game.player.token}">`;
+      subHeader.innerHTML = playerSubHeader(game.player);
       break;
     case "computer":
-      subHeader.innerHTML = `<img class="token" src="${game.computer.token}">${game.computer.name} wins!<img class="token" src="${game.computer.token}">`;
+      subHeader.innerHTML = playerSubHeader(game.computer);
       break;
     case "tie":
       subHeader.innerText = "It's a tie!";
