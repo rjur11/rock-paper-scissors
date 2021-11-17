@@ -8,6 +8,8 @@ class Game {
     this.mode = "home";
   }
 
+  // I don't think you need this conditional! empty strings are falsy values so you could just use the bang operator
+  // if (!this.playerSelection || !this.computerSelection)
   checkForWin() {
     if (this.playerSelection === "" || this.computerSelection === "") {
       return "none";

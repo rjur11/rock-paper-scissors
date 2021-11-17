@@ -5,6 +5,8 @@ class Player {
     this.wins = 0;
   }
 
+  // not 100% on this, but I don't think you need the window.localStorage, I think you can just use localStorage.set etc...
+  
   saveWinsToStorage() {
     window.localStorage.setItem(this.name, `${this.wins}`);
   }
