@@ -180,6 +180,9 @@ function randomSelect(array) {
 }
 
 function makeSelection(event) {
+  if (game.mode !== "selection") {
+    return;
+  }
   game.player.setSelection(event.target.dataset.pokemon);
   showSelectionToken();
   if (game.gameType === "classic") {
@@ -188,6 +191,7 @@ function makeSelection(event) {
     var computerSelection = randomSelect(hardModeArray);
   }
   game.computer.setSelection(computerSelection);
+  game.mode = "comparison";
   setTimeout(makeComparison, 1000);
 }
 
@@ -210,7 +214,6 @@ function removeSelectionToken() {
 }
 
 function makeComparison() {
-  game.mode = "comparison";
   renderGame();
   setTimeout(resetBoard, 2000);
   removeSelectionToken();
