@@ -94,6 +94,15 @@ function renderGame() {
   renderScores();
 }
 
+// I think the below 2 functions could be refactored into one.
+// something like the below example. then when you call it, you can pass in "classic" and "hard" as arguments!
+
+// function onGameClick(gameDifficulty) {
+//   game.gameType = gameDifficulty
+//   game.mode = "selection";
+//   renderGame(); 
+// }
+
 function onClassicClick() {
   game.gameType = "classic";
   game.mode = "selection";
